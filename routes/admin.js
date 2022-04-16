@@ -1,8 +1,16 @@
-//This should be the route that handles the creation of the products which the admin of the shop can do.
-const express=require('express') ;
+const path=require('path')
 
-const Router =express.Router(); //this router is like a miniexpress app tied to other express app
+const express = require('express');
 
-Router.po
+const router = express.Router();
 
-module.exports=Router;
+router.get('/add-product', (req, res, next) => {
+  res.sendFile(path.join(__dirname,'../','views','add-product.html'))
+});
+
+router.post('/add-product', (req, res, next) => {
+  console.log(req.body);
+  res.redirect('/');
+});
+
+module.exports = router;
